@@ -20,7 +20,7 @@ def imgClassifier(imageFilename):
 def main():
     # Streamlit UI
     st.header("Title: Age Classification using ViT")
-    age_predictions = imgClassifier()
+    age_predictions = imgClassifier("middleagedMan.jpg")
 
     st.write(age_predictions)
     age_predictions = sorted(age_predictions, key=lambda x: x['score'], reverse=True)
