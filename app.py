@@ -3,13 +3,13 @@ from PIL import Image
 import streamlit as st
 
 #function part
-def imgClassifier():
+def imgClassifier(imageFilename):
     # Load the age classification pipeline
     # The code below should be placed in the main part of the program
     age_classifier = pipeline("image-classification",
                               model="nateraw/vit-age-classifier")
     
-    image_name = "middleagedMan.jpg"
+    image_name = imageFilename
     image_name = Image.open(image_name).convert("RGB")
     
     # Classify age
