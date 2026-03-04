@@ -16,7 +16,7 @@ def imgClassifier(imageFilename,modelName):
     age_predictions = age_classifier(image_name)
     return age_predictions
 
-def output_msg(age_predictions)
+def output_msg(age_predictions):
     st.write(age_predictions)
     age_predictions = sorted(age_predictions, key=lambda x: x['score'], reverse=True)
     
