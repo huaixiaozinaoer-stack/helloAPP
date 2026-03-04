@@ -31,7 +31,7 @@ def main():
     st.header("Title: Age Classification using ViT")
     age_predictions = imgClassifier("middleagedMan.jpg","nateraw/vit-age-classifier")
 
-    output_msg()
+    output_msg(age_predictions)
 
 
 if __name__ == "__main__":
