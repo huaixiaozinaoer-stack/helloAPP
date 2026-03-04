@@ -3,11 +3,11 @@ from PIL import Image
 import streamlit as st
 
 #function part
-def imgClassifier(imageFilename):
+def imgClassifier(imageFilename,modelName):
     # Load the age classification pipeline
     # The code below should be placed in the main part of the program
     age_classifier = pipeline("image-classification",
-                              model="nateraw/vit-age-classifier")
+                              model=modelName)
     
     image_name = imageFilename
     image_name = Image.open(image_name).convert("RGB")
@@ -16,12 +16,7 @@ def imgClassifier(imageFilename):
     age_predictions = age_classifier(image_name)
     return age_predictions
 
-
-def main():
-    # Streamlit UI
-    st.header("Title: Age Classification using ViT")
-    age_predictions = imgClassifier("middleagedMan.jpg")
-
+def output_msg(age_predictions)
     st.write(age_predictions)
     age_predictions = sorted(age_predictions, key=lambda x: x['score'], reverse=True)
     
@@ -30,6 +25,13 @@ def main():
     st.write(f"Age range: {age_predictions[0]['label']}")
 
     st.write("Done")
+    
+def main():
+    # Streamlit UI
+    st.header("Title: Age Classification using ViT")
+    age_predictions = imgClassifier("middleagedMan.jpg","nateraw/vit-age-classifier")
+
+    output_msg()
 
 
 if __name__ == "__main__":
